@@ -43,7 +43,13 @@ return packer.startup(function(use)
 	use ("wbthomason/packer.nvim") -- Have packer manage itself	
 
 	--File Manager
-	use { "nvim-tree/nvim-tree.lua", config = [[require('config.nvim-tree')]]}
+	use { "nvim-tree/nvim-tree.lua" }
+    
+    --Status line
+    use("nvim-lualine/lualine.nvim")
+
+    --Icons for File Manager
+    use { "nvim-tree/nvim-web-devicons" }
 
 	--Darcula colorscheme
 	use("doums/darcula")

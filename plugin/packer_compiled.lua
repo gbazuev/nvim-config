@@ -79,11 +79,20 @@ _G.packer_plugins = {
     path = "/home/madecat/.local/share/nvim/site/pack/packer/start/darcula",
     url = "https://github.com/doums/darcula"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/madecat/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-tree.lua"] = {
-    config = { "require('config.nvim-tree')" },
     loaded = true,
     path = "/home/madecat/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/madecat/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -93,10 +102,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
