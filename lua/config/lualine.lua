@@ -1,9 +1,12 @@
-local lualine_powerline = require'lualine.themes.powerline'
+local status, lualine = pcall(require, 'lualine')
+if not status then
+    return
+end
 
-require('lualine').setup {
+lualine.setup({
   options = {
     icons_enabled = true,
-    theme = lualine_powerline,
+    theme = 'powerline',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -38,5 +41,5 @@ require('lualine').setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
-}
+  extensions = {},
+})
