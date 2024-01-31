@@ -88,6 +88,9 @@ return packer.startup(function(use)
 
 	--Darcula colorscheme
 	use("doums/darcula")
+    
+    --Gruvbox colorscheme
+    use("ellisonleao/gruvbox.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
