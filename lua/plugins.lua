@@ -68,17 +68,23 @@ return packer.startup(function(use)
         end,
     })
 
-    --Nvim-Treesitter
+    --Nvim-Treesitter ERROR OCCURES
+    
+    --Language Server Providers
     use({
-        "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
+        "williamboman/mason.nvim",
         config = function()
-            require("config.treesitter")
+            require("config.mason")
         end,
     })
+
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("config.mason-lspconfig")
+        end,
+    })
+    use("neovim/nvim-lspconfig")
 
 	--Darcula colorscheme
 	use("doums/darcula")
