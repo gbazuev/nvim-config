@@ -69,7 +69,17 @@ return packer.startup(function(use)
     })
 
     --Nvim-Treesitter ERROR OCCURES
-    
+    --[[use({
+        "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require("config.treesitter")
+        end,
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+    })]]
+
     --Language Server Providers
     use({
         "williamboman/mason.nvim",

@@ -1,12 +1,8 @@
+--currently installed: darcula, gruvbox
+
 local colorscheme = 'gruvbox'
 
-if colorscheme == 'darcula' then
-    local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-    if not ok then
-        vim.notify('colorscheme ' .. colorscheme .. ' not found!')
-        return
-    end
-elseif colorscheme == 'gruvbox' then
+if colorscheme == 'gruvbox' then
     require("gruvbox").setup({
         terminal_colors = true, -- add neovim terminal colors
         undercurl = true,
@@ -31,9 +27,10 @@ elseif colorscheme == 'gruvbox' then
         dim_inactive = false,
         transparent_mode = false,
     })
-    
-    local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-    if not ok then
-        vim.notify("colorscheme " .. colorscheme .. " not found!")
-    end
+end
+
+local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not ok then
+    vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
 end
