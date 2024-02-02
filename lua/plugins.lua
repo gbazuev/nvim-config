@@ -80,21 +80,35 @@ return packer.startup(function(use)
         end,
     })]]
 
-    --Language Server Providers
+    --LSP Managers
     use({
         "williamboman/mason.nvim",
         config = function()
-            require("config.mason")
+            require("config.lsp.mason")
         end,
     })
 
     use({
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("config.mason-lspconfig")
+            require("config.lsp.mason-lspconfig")
         end,
     })
-    use("neovim/nvim-lspconfig")
+    
+    --Configuring LSP servers
+    use("neovim/nvim-lspconfig") --For easy configuration
+
+    use("hrsh7th/cmp-nvim-lsp") --For autocompletion
+
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        requires = {
+            { "nvim-tree/nvim-web-devicons" }
+        }
+    })
+
+    use("onsails/lspkind.nvim") --VsCode-like icons for autocompletion
 
 	--Darcula colorscheme
 	use("doums/darcula")
