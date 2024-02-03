@@ -88,27 +88,40 @@ return packer.startup(function(use)
         end,
     })
 
-    use({
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("config.lsp.mason-lspconfig")
-        end,
-    })
+    use("williamboman/mason-lspconfig.nvim")
     
     --Configuring LSP servers
     use("neovim/nvim-lspconfig") --For easy configuration
-
+    
     use("hrsh7th/cmp-nvim-lsp") --For autocompletion
+    
+    use("https://github.com/jose-elias-alvarez/null-ls.nvim")
 
-    use({
+    --[[use({
         "glepnir/lspsaga.nvim",
         branch = "main",
         requires = {
             { "nvim-tree/nvim-web-devicons" }
         }
-    })
+    })]]
 
     use("onsails/lspkind.nvim") --VsCode-like icons for autocompletion
+
+    --[[ Autocompletion ]]
+    use({
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("config.nvim-cmp")
+        end
+    })
+    
+    use("hrsh7th/cmp-buffer") --source for text in buffer
+    use("hrsh7th/cmp-path") -- source for file system path   
+    
+    -- Snippets
+    use("L3MON4D3/LuaSnip") -- snippet engine
+    use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+    --use("rafamadriz/friendly-snippets") -- useful snippets
 
 	--Darcula colorscheme
 	use("doums/darcula")
