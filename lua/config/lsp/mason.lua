@@ -1,8 +1,10 @@
 --All servers that are needed
 local servers = {
   "lua_ls",
-  "clangd"
-  --"autotools-language-server" FOR MAKE
+  "clangd",
+  "cmake",
+  "asm_lsp",
+  "autotools_ls"
 }
 
 --mason setup

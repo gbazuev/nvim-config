@@ -105,7 +105,7 @@ return packer.startup(function(use)
 
     use("onsails/lspkind.nvim") --VsCode-like icons for autocompletion
 
-    --[[ Autocompletion ]]
+    -- Autocompletion
     use({
         "hrsh7th/nvim-cmp",
         config = function()
@@ -135,14 +135,17 @@ return packer.startup(function(use)
             require("config.barbar")
         end
     })
-
+    
+    -- Helpers (special functions etc.)
     use("nvim-lua/plenary.nvim")
-
+    
+    -- Search
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         requires = {{ "nvim-lua/plenary.nvim" }}
     })
+
 	--Darcula colorscheme
 	use("doums/darcula")
 
