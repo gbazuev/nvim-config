@@ -64,11 +64,11 @@ return packer.startup(function(use)
     use({
         "nvim-tree/nvim-web-devicons",
         config = function()
-            require("config.nvim-web-devicons") 
+            require("config.nvim-web-devicons")
         end,
     })
 
-    --Nvim-Treesitter ERROR OCCURES
+    -- Treesitter ERROR OCCURES
     --[[use({
         "nvim-treesitter/nvim-treesitter",
         config = function()
@@ -89,13 +89,11 @@ return packer.startup(function(use)
     })
 
     use("williamboman/mason-lspconfig.nvim")
-    
+
     --Configuring LSP servers
-    use("neovim/nvim-lspconfig") --For easy configuration
-    
+    use("neovim/nvim-lspconfig") --For easy configuration    
     use("hrsh7th/cmp-nvim-lsp") --For autocompletion
-    
-    use("https://github.com/jose-elias-alvarez/null-ls.nvim")
+    use("jose-elias-alvarez/null-ls.nvim")
 
     --[[use({
         "glepnir/lspsaga.nvim",
@@ -114,18 +112,40 @@ return packer.startup(function(use)
             require("config.nvim-cmp")
         end
     })
-    
+
     use("hrsh7th/cmp-buffer") --source for text in buffer
     use("hrsh7th/cmp-path") -- source for file system path   
-    
+
     -- Snippets
     use("L3MON4D3/LuaSnip") -- snippet engine
     use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-    --use("rafamadriz/friendly-snippets") -- useful snippets
 
+    -- Beautiful notifications
+    use({
+        "rcarriga/nvim-notify",
+        config = function()
+            require("config.notify")
+        end
+    })
+
+    -- Bufferline
+    use({
+        "romgrk/barbar.nvim",
+        config = function()
+            require("config.barbar")
+        end
+    })
+
+    use("nvim-lua/plenary.nvim")
+
+    use({
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        requires = {{ "nvim-lua/plenary.nvim" }}
+    })
 	--Darcula colorscheme
 	use("doums/darcula")
-    
+
     --Gruvbox colorscheme
     use("ellisonleao/gruvbox.nvim")
 

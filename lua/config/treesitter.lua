@@ -15,6 +15,11 @@ treesitter.setup({
 
     ensure_installed = {
         "cpp",
+        "c",
+        "lua",
+        "cmake",
+        "make",
+        "nasm"
     },
 
     auto_install = true,
