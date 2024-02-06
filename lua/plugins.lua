@@ -40,60 +40,27 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use ("wbthomason/packer.nvim") -- Have packer manage itself	
+	use "wbthomason/packer.nvim" -- Have packer manage itself	
 
-	--File Manager
 	use ({
         "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("config.nvim-tree")
-        end,
         requires = { "nvim-web-devicons" },
     })
-    
-    --Status line
+
     use ({
-         "nvim-lualine/lualine.nvim", 
-         config = function()
-             require("config.lualine")
-         end,
+        "nvim-lualine/lualine.nvim",
         requires = { "nvim-web-devicons" },
     })
 
-    --Icons for File Manager
-    use({
-        "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("config.nvim-web-devicons")
-        end,
-    })
+    use "nvim-tree/nvim-web-devicons" -- [[ ICONS ]]
 
-    -- Treesitter ERROR OCCURES
-    --[[use({
-        "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require("config.treesitter")
-        end,
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
-    })]]
+    --ERROR use "nvim-treesitter/nvim-treesitter"
 
-    --LSP Managers
-    use({
-        "williamboman/mason.nvim",
-        config = function()
-            require("config.lsp.mason")
-        end,
-    })
-
-    use("williamboman/mason-lspconfig.nvim")
-
-    --Configuring LSP servers
-    use("neovim/nvim-lspconfig") --For easy configuration    
-    use("hrsh7th/cmp-nvim-lsp") --For autocompletion
-    use("jose-elias-alvarez/null-ls.nvim")
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+    use "neovim/nvim-lspconfig" --For easy configuration    
+    use "hrsh7th/cmp-nvim-lsp" --For autocompletion
+    use "jose-elias-alvarez/null-ls.nvim"
 
     --[[use({
         "glepnir/lspsaga.nvim",
@@ -103,54 +70,25 @@ return packer.startup(function(use)
         }
     })]]
 
-    use("onsails/lspkind.nvim") --VsCode-like icons for autocompletion
+    use "onsails/lspkind.nvim" --VsCode-like icons for autocompletion
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer" --source for text in buffer
+    use "hrsh7th/cmp-path" -- source for file system path   
+    use "L3MON4D3/LuaSnip" --[[ SNIPPET ENGINE ]]
+    use "saadparwaiz1/cmp_luasnip" -- for autocompletion
+    use "rcarriga/nvim-notify"
+    use "romgrk/barbar.nvim"
+    use "nvim-lua/plenary.nvim"
 
-    -- Autocompletion
-    use({
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("config.nvim-cmp")
-        end
-    })
-
-    use("hrsh7th/cmp-buffer") --source for text in buffer
-    use("hrsh7th/cmp-path") -- source for file system path   
-
-    -- Snippets
-    use("L3MON4D3/LuaSnip") -- snippet engine
-    use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-
-    -- Beautiful notifications
-    use({
-        "rcarriga/nvim-notify",
-        config = function()
-            require("config.notify")
-        end
-    })
-
-    -- Bufferline
-    use({
-        "romgrk/barbar.nvim",
-        config = function()
-            require("config.barbar")
-        end
-    })
-    
-    -- Helpers (special functions etc.)
-    use("nvim-lua/plenary.nvim")
-    
-    -- Search
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         requires = {{ "nvim-lua/plenary.nvim" }}
     })
 
-	--Darcula colorscheme
-	use("doums/darcula")
-
-    --Gruvbox colorscheme
-    use("ellisonleao/gruvbox.nvim")
+	--THEMES
+	use "doums/darcula"
+    use "ellisonleao/gruvbox.nvim"
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -1,3 +1,12 @@
 require("plugins")
 require("options")
 require("colorscheme")
+
+require("config.nvim-tree")
+require("config.lualine")
+require("config.nvim-web-devicons")
+require("config.lsp.mason")
+require("config.nvim-cmp")
+require("config.barbar")
+require("config.telescope")
+require("config.treesitter")

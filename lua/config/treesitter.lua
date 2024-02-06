@@ -9,18 +9,11 @@ if not status then
 end
 
 treesitter.setup({
-    highlight = { enable = true },
-    
-    indent = { enable = true },
+    ensure_installed = { "c", "lua", "cpp" },
 
-    ensure_installed = {
-        "cpp",
-        "c",
-        "lua",
-        "cmake",
-        "make",
-        "nasm"
-    },
-
+    sync_install = false,
     auto_install = true,
+    highlight = {
+        enable = true,
+    },
 })

@@ -62,7 +62,7 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
 end
 
-local null_ls_status, null_ls = pcall(require, "null-ls")
+local null_ls_status, _ = pcall(require, "null-ls")
 if not null_ls_status then
     return
 end
