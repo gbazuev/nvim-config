@@ -62,14 +62,6 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lsp" --For autocompletion
     use "jose-elias-alvarez/null-ls.nvim"
 
-    --[[use({
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        requires = {
-            { "nvim-tree/nvim-web-devicons" }
-        }
-    })]]
-
     use "onsails/lspkind.nvim" --VsCode-like icons for autocompletion
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer" --source for text in buffer
@@ -79,6 +71,8 @@ return packer.startup(function(use)
     use "rcarriga/nvim-notify"
     use "romgrk/barbar.nvim"
     use "nvim-lua/plenary.nvim"
+
+    use "folke/which-key.nvim"
 
     use({
         "nvim-telescope/telescope.nvim",
