@@ -1,6 +1,6 @@
 --currently installed: darcula, gruvbox
 
-local colorscheme = 'gruvbox'
+local colorscheme = 'darcula'
 
 if colorscheme == 'gruvbox' then
     require("gruvbox").setup({
