@@ -3,6 +3,8 @@
 2. Error with config (lua structure)
 ]]
 
+require("nvim-treesitter.install").prefer_git = true
+
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
     return

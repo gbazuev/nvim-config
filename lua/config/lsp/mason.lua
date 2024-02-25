@@ -3,7 +3,6 @@ local servers = {
   "lua_ls",
   "clangd",
   "cmake",
-  "asm_lsp",
   "autotools_ls"
 }
 

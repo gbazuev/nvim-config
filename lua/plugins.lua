@@ -40,44 +40,50 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use "wbthomason/packer.nvim" -- Have packer manage itself	
+	use "wbthomason/packer.nvim"                -- Have packer manage itself (for packer update)
 
 	use ({
         "nvim-tree/nvim-tree.lua",
         requires = { "nvim-web-devicons" },
-    })
+    })                                          -- file browser
 
     use ({
         "nvim-lualine/lualine.nvim",
         requires = { "nvim-web-devicons" },
-    })
+    })                                          -- beautiful and user-friendly bottom bar
 
-    use "nvim-tree/nvim-web-devicons" -- [[ ICONS ]]
-
-    --ERROR use "nvim-treesitter/nvim-treesitter"
+    use "nvim-tree/nvim-web-devicons"           -- beautiful file (and more) icons (nerd (patched) font required
 
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
-    use "neovim/nvim-lspconfig" --For easy configuration    
-    use "hrsh7th/cmp-nvim-lsp" --For autocompletion
-    use "jose-elias-alvarez/null-ls.nvim"
+    use "neovim/nvim-lspconfig"                 -- For easy configuration    
+    use "hrsh7th/cmp-nvim-lsp"                  -- 
+    use "jose-elias-alvarez/null-ls.nvim"       -- special null-language-server, if we didn't have any language servers installed
 
-    use "onsails/lspkind.nvim" --VsCode-like icons for autocompletion
+    use "onsails/lspkind.nvim"                  -- VsCode-like icons for autocompletion
     use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-buffer" --source for text in buffer
-    use "hrsh7th/cmp-path" -- source for file system path   
-    use "L3MON4D3/LuaSnip" --[[ SNIPPET ENGINE ]]
-    use "saadparwaiz1/cmp_luasnip" -- for autocompletion
-    use "rcarriga/nvim-notify"
-    use "romgrk/barbar.nvim"
-    use "nvim-lua/plenary.nvim"
+    use "hrsh7th/cmp-buffer"                    -- source for text in buffer
+    use "hrsh7th/cmp-path"                      -- source for file system path   
+    use "L3MON4D3/LuaSnip"                      -- snippet engine
+    use "saadparwaiz1/cmp_luasnip"              -- for autocompletion
+    use "rcarriga/nvim-notify"                  -- user-friendly notification system (errors, warnings etc.)
+    use "romgrk/barbar.nvim"                    -- convenient top panel with files
+    use "nvim-lua/plenary.nvim"                 -- convenient functions that contains boilerplate lua code (for Telescope)
 
-    use "folke/which-key.nvim"
+    use "folke/which-key.nvim"                  -- hints fo using keyboard keys
 
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         requires = {{ "nvim-lua/plenary.nvim" }}
+    })                                          -- search engine
+
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
     })
 
 	--THEMES
