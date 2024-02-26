@@ -72,6 +72,8 @@ return packer.startup(function(use)
 
     use "folke/which-key.nvim"                  -- hints fo using keyboard keys
 
+    use "windwp/nvim-autopairs"                 -- brackets and other pairs completion
+
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
